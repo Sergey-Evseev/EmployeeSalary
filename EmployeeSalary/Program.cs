@@ -74,13 +74,11 @@ namespace SimpleProject
         {
             return (e1.salary < e2.salary);
         }
-
     }
     class Program
     {
         static void Main(string[] args)
         {
-
             Employee employee1 = new Employee("Jim", "Beam", 2440.55);
             employee1.Print();
             Employee employee2 = new Employee("Jack", "Smith", DateTime.Now, 3587.43);
