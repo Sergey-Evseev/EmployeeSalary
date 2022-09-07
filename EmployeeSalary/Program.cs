@@ -54,12 +54,13 @@ namespace SimpleProject
             WriteLine($"Заработная плата: {salary} $");
         }
         
+        //перегрузка оператора плюс
         public static Employee operator + (Employee e, double amount)
         {
             e.salary = e.salary + amount;           
             return e;
         }
-        //перегрузка оператора равно
+        //перегрузка метода Equals
         public override bool Equals(object obj) {
             return this.salary == ((Employee)obj).salary; //cast принимаемого объекта к типу класса
         }
@@ -68,11 +69,12 @@ namespace SimpleProject
         {
             return (e1.salary > e2.salary);
         }
-
+        //перегрузка оператора меньше
         public static bool operator < (Employee e1, Employee e2)
         {
             return (e1.salary < e2.salary);
         }
+
     }
     class Program
     {
@@ -84,6 +86,7 @@ namespace SimpleProject
             Employee employee2 = new Employee("Jack", "Smith", DateTime.Now, 3587.43);
             employee2.Print();
 
+            Console.WriteLine("\nРавенство по Equals: " + employee1.Equals(employee2));    
             Console.WriteLine("\nЗарплаты сотрудников равны: " + (employee1 == employee2));
             Console.WriteLine("\nЗарплата сотрудника 1 больше сотрудника 2: " + (employee1 > employee2));
             Console.WriteLine("\nЗарплата сотрудника 1 меньше сотрудника 2: " + (employee1 < employee2));
